@@ -1,0 +1,23 @@
+{
+  "name": "kadin_chawah_comp229_assignment_3",
+  "version": "1.0.0",
+  "description": "Portfolio backend using Node.js, Express, MongoDB for COMP229 Assignment 3.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Kadin Chawah",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.9",
+    "express": "^4.21.2",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^8.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
