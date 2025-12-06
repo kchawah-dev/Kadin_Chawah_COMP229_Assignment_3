@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Test GET /api/contacts/:id</h1>
+
+<input id="id" placeholder="Enter contact ID">
+<button id="btn">Get Contact</button>
+<pre id="output"></pre>
+
+<script>
+const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthZGluIiwiaWF0IjoxNzY0OTgwMTQ2LCJleHAiOjE3NjQ5ODM3NDZ9.dbJTLGuxGkGnjWQGDlFW9yMMLCZEZAqxpOCcOZ_1ePg";
+
+document.getElementById("btn").onclick = async () => {
+  const id = document.getElementById("id").value;
+
+  const res = await fetch(`http://localhost:3000/api/contacts/${id}`, {
+    headers: {
+      "Authorization": "Bearer " + TOKEN
+    }
+  });
+
+  const data = await res.json();
+  document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Test DELETE /api/users/:id</h1>
+
+<input id="id" placeholder="Enter user ID">
+<button id="btn">Delete User</button>
+<pre id="output"></pre>
+
+<script>
+document.getElementById("btn").onclick = async () => {
+  const id = document.getElementById("id").value;
+
+  const res = await fetch(`http://localhost:3000/api/users/${id}`, {
+    method: "DELETE"
+  });
+
+  const data = await res.json();
+  document.getElementById("output").textContent =
+    JSON.stringify(data, null, 2);
+};
+</script>
+
+</body>
+</html>

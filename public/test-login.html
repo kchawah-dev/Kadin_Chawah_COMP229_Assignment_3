@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Test /auth/login</h1>
+<button id="loginBtn">Send Login Request</button>
+<pre id="output"></pre>
+
+<script>
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const output = document.getElementById("output");
+
+  try {
+    const response = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: "kadin" })
+    });
+
+    const data = await response.json();
+    output.textContent = JSON.stringify(data, null, 2);
+
+  } catch (err) {
+    output.textContent = `Request failed:\n${err.message}`;
+  }
+});
+</script>
+
+</body>
+</html>

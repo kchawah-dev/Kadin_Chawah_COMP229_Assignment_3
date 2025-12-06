@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Test GET /api/contacts</h1>
+
+<button id="btn">Get Contacts</button>
+<pre id="output"></pre>
+
+<script>
+const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthZGluIiwiaWF0IjoxNzY0OTgwMTQ2LCJleHAiOjE3NjQ5ODM3NDZ9.dbJTLGuxGkGnjWQGDlFW9yMMLCZEZAqxpOCcOZ_1ePg";
+
+document.getElementById("btn").onclick = async () => {
+  const res = await fetch("http://localhost:3000/api/contacts", {
+    headers: {
+      "Authorization": "Bearer " + TOKEN
+    }
+  });
+  const data = await res.json();
+  document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+};
+</script>
+
+</body>
+</html>
